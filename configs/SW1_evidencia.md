@@ -10,6 +10,83 @@
 - El informe posterior a la ejecución compartida muestra SSH v2, transporte VTY SSH, timeout efectivo de 10 minutos, enable secret y banner MOTD como `PASS`.
 - El mismo informe muestra el servidor HTTP habilitado (`1.2.2.5`, `FAIL`).
 
-## No incluido
+## Running config 
+Switch#show running-config
+Building configuration...
 
-La evidencia recibida no contiene un `show running-config` completo de SW1. No se inventan comandos ni los valores de configuración restantes. Agrega un volcado actual únicamente después de ocultar hashes, contraseñas, claves y datos que no deban publicarse.
+Current configuration : 2907 bytes
+!
+! Last configuration change at 19:27:12 UTC Fri Nov 13 2026 by auditor
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$FAjo$lUfXoEzsTCXyIShX5A5iJ0
+!
+username auditor privilege 15 secret 5 $1$BlHZ$HUASuwG.mL7FVeNSBp7mu0
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name lab.local
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ negotiation auto
+!
+interface Vlan1
+ ip address 10.20.98.2 255.255.255.0
+!
+ip default-gateway 10.20.98.1
+ip forward-protocol nd
+!
+ip http server
+ip http secure-server
+!
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+!
+!
+!
+!
+!
+control-plane
