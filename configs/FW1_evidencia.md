@@ -14,6 +14,3 @@ En una captura temprana `port3` aparece temporalmente como `0.0.0.0`; una captur
 
 La ejecución Apply mostró como cambios preparados habilitar el pre-login banner y asignar hostname `FW1`. El resumen global fue `PASS=23`, `FAIL=3`, pero la evidencia compartida no incluye la tabla POST completa de FortiGate; consulta el reporte local para confirmar estados por control.
 
-## No incluido
-
-No se incluyen reglas de firewall completas, administradores, secretos ni un volcado del sistema. El segmento/DHCP de port1 se omite intencionalmente de las capturas públicas y Apply no modifica port1.
