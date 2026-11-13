@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Topología técnica del laboratorio GNS3</title>
+  <desc id="desc">Kali y el switch están en la LAN 10.20.98.0/24. El FortiGate conecta esa LAN con R1 por la red 10.20.79.0/30 y preserva port1 para el enlace externo.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f9fc}.card{fill:#fff;stroke:#16324f;stroke-width:3;rx:18}.title{font:700 25px Arial,sans-serif;fill:#12263a}.subtitle{font:16px Arial,sans-serif;fill:#42566c}.device{font:700 22px Arial,sans-serif;fill:#102a43}.detail{font:17px Arial,sans-serif;fill:#243b53}.small{font:15px Arial,sans-serif;fill:#486581}.link{stroke:#334e68;stroke-width:5;fill:none}.dash{stroke:#829ab1;stroke-width:3;stroke-dasharray:10 8;fill:none}.label{font:700 16px Arial,sans-serif;fill:#334e68}.tag{fill:#e6f6ff;stroke:#3e92cc;stroke-width:1.5;rx:9}.tagtext{font:700 14px Arial,sans-serif;fill:#1261a0}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Topología técnica — laboratorio GNS3</text>
+  <text x="600" y="77" text-anchor="middle" class="subtitle">Segmento de administración, tránsito hacia R1 y enlace externo preservado</text>
+
+  <!-- External cloud -->
+  <g transform="translate(95 150)">
+    <path d="M35 75 C5 75 0 35 30 25 C40 -5 88 -5 100 23 C135 10 160 38 150 63 C175 80 157 110 130 110 H42 C15 110 6 90 35 75Z" fill="#e8f1fb" stroke="#486581" stroke-width="3"/>
+    <text x="82" y="62" text-anchor="middle" class="device">Cloud1</text>
+    <text x="82" y="88" text-anchor="middle" class="small">Red externa</text>
+  </g>
+
+  <!-- FortiGate -->
+  <rect x="445" y="130" width="330" height="390" class="card"/>
+  <text x="610" y="171" text-anchor="middle" class="device">FortiGate 7.0.9</text>
+  <text x="610" y="200" text-anchor="middle" class="small">FW1 · firewall y gateway entre segmentos</text>
+  <rect x="485" y="225" width="250" height="62" class="tag"/>
+  <text x="610" y="251" text-anchor="middle" class="tagtext">port1 · DHCP externo</text>
+  <text x="610" y="273" text-anchor="middle" class="small">Se preserva; Apply no lo modifica</text>
+  <rect x="485" y="320" width="250" height="70" class="tag"/>
+  <text x="610" y="349" text-anchor="middle" class="tagtext">port2 · 10.20.79.2/30</text>
+  <text x="610" y="373" text-anchor="middle" class="small">Tránsito hacia R1</text>
+  <rect x="485" y="420" width="250" height="70" class="tag"/>
+  <text x="610" y="449" text-anchor="middle" class="tagtext">port3 · 10.20.98.1/24</text>
+  <text x="610" y="473" text-anchor="middle" class="small">Gateway LAN de administración</text>
+
+  <!-- Router -->
+  <rect x="905" y="305" width="225" height="145" class="card"/>
+  <text x="1017" y="345" text-anchor="middle" class="device">Cisco 7200 · R1</text>
+  <text x="1017" y="379" text-anchor="middle" class="detail">10.20.79.1/30</text>
+  <text x="1017" y="414" text-anchor="middle" class="small">IOS 15.2</text>
+
+  <!-- L2 and Kali -->
+  <rect x="150" y="585" width="300" height="125" class="card"/>
+  <text x="300" y="625" text-anchor="middle" class="device">Cisco vIOS L2 · SW1</text>
+  <text x="300" y="660" text-anchor="middle" class="detail">VLAN 1 · 10.20.98.2/24</text>
+  <text x="300" y="689" text-anchor="middle" class="small">Conmutación de la LAN de gestión</text>
+  <rect x="750" y="585" width="300" height="125" class="card"/>
+  <text x="900" y="625" text-anchor="middle" class="device">Kali Linux</text>
+  <text x="900" y="660" text-anchor="middle" class="detail">eth0 · 10.20.98.10/24</text>
+  <text x="900" y="689" text-anchor="middle" class="small">Equipo de auditoría SSH</text>
+
+  <!-- Links -->
+  <path d="M245 235 C330 235 350 254 445 254" class="dash"/>
+  <text x="345" y="218" text-anchor="middle" class="label">Cloud1 ↔ port1</text>
+  <path d="M775 355 H905" class="link"/>
+  <text x="840" y="337" text-anchor="middle" class="label">10.20.79.0/30</text>
+  <path d="M520 520 C475 555 410 575 360 585" class="link"/>
+  <text x="433" y="548" text-anchor="middle" class="label">port3 → LAN</text>
+  <path d="M450 647 H750" class="link"/>
+  <text x="600" y="630" text-anchor="middle" class="label">10.20.98.0/24</text>
+
+  <text x="600" y="742" text-anchor="middle" class="small">Kali usa 10.20.98.1 como gateway para llegar a R1 por FortiGate port2.</text>
+</svg>
