@@ -16,7 +16,7 @@ Proyecto académico desarrollado desde Kali Linux para documentar y auditar cont
 | [`diagramas/`](diagramas/README.md) | Diagrama técnico vectorial SVG y captura original GNS3. |
 | [`imagenes/`](imagenes/README.md) | Capturas enviadas, saneadas y descritas. |
 | `requirements.txt` | Dependencia Netmiko. |
-| `.gitignore` | Excluye informes, respaldos y archivos sensibles generados. |
+
 
 ## Topología y direccionamiento
 
