@@ -1,4 +1,5 @@
 # Auditoría y hardening de red — práctica GNS3
+## link-video = https://youtu.be/QQIYPdCoNuw
 
 Proyecto académico desarrollado desde Kali Linux para documentar y auditar controles seleccionados en una topología con Cisco 7200, Cisco vIOS L2 y FortiGate 7.0.9.
 
